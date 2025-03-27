@@ -573,7 +573,8 @@
   position: static;
 }
 
-.swiper-button-next:after, .swiper-button-prev:after{
+footer .dep1 .swiper-button-next:after, 
+footer .dep1 .swiper-button-prev:after{
   display: none;
 }
 
@@ -623,6 +624,12 @@ footer .dep1 .btn-wrap .swiper-button-prev {
   .depth2 .swiper-slide a .img-wrap img{
     height: auto;
     transform: translateY(-10%);
+  }
+  .c-wrap{
+    flex-direction: column;
+  }
+  .write-btn{
+    margin-top: 0;
   }
 }
 
