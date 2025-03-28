@@ -3854,6 +3854,62 @@ footer는 따로 들어가는 기능은 없지만 추후에 mediaquery를 이용
       .content-wrap > ul li a span:first-child {
         width: 75%;
         text-overflow
+
+     .content-wrap > ul li a span:last-child {
+    width: 20%;
+  }
+
+      .open-notice {
+    padding: 2rem;
+  }
+
+  /* Footer 스타일 */
+  footer .dep1 h4 {
+    display: none;
+  }
+
+  footer .site li a img {
+    height: 3rem;
+  }
+
+  footer .dep1 .rel {
+    gap: 4.8rem;
+  }
+
+  footer .dep1 {
+    padding: 1.8rem 0;
+    margin-top: 4rem;
+  }
+
+  footer .site {
+    text-align: center;
+  }
+
+  footer .site li {
+    min-width: auto;
+    padding: 0 3rem;
+  }
+
+  footer .dep2 {
+    padding: 2.5rem 0;
+  }
+
+  footer .time,
+  .foot-info {
+    font-size: 1.4rem;
+    line-height: 2.2rem;
+  }
+
+  .foot-info {
+    margin-bottom: 0;
+  }
+
+  .fixedTop {
+    bottom: 8rem;
+    width: 5rem;
+  }
+}
+
     
     ```
     
