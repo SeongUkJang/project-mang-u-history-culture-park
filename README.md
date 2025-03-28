@@ -316,7 +316,6 @@
     
     section h2 {
         font-size: 3.6rem;
-        line-height: 4.6rem;
         font-weight: 700;
     }
     
@@ -1386,7 +1385,7 @@ pagination의 button을 위 아래로 적용하여야 했는데 position: static
                   <div class="swiper-slide">
                     <a href="#">
     
-                      TBS 중랑스테이 <흔적> 망우역사문화공원 방송 5.25.(목) 20:00
+                      TBS 중랑스테이 '흔적' 망우역사문화공원 방송 5.25.(목) 20:00
     
                     </a>
                   </div>
@@ -3012,7 +3011,7 @@ fixedTopBtn.addEventListener('click', (e) => {
                 </li>
                 <li>
                   <a href="#">
-                    <span class="txt">망우리연구소, <독립운동의 주춧돌-남파 박찬익> 펴내</span>
+                    <span class="txt">망우리연구소, '독립운동의 주춧돌-남파 박찬익' 펴내</span>
                     <span class="date">2024-07-19</span>
                   </a>
                 </li>
@@ -3481,25 +3480,29 @@ footer는 따로 들어가는 기능은 없지만 추후에 mediaquery를 이용
 - 화면크기 1024px 이하
     
     ```css
-    /* max-width: 1024px 이하 */
-    @media screen and (max-width:1024px) {
+    @media screen and (max-width: 1024px) {
+    
+      /* .sch-c-btn의 이미지 숨기기 */
       .sch-c-btn img {
-        opacity: 0; /* 검색 버튼의 이미지 숨김 */
+        opacity: 0;
       }
     
+      /* depth2, depth3, depth4, depth5 요소의 패딩을 조정 */
       .depth2, .depth3, .depth4, .depth5 {
-        padding: 2rem 0; /* padding 값 수정 */
+        padding: 2rem 0;
       }
     
+      /* 헤더를 화면 상단에 고정하고, 배경색과 하단 경계선 추가 */
       header {
-        position: fixed; /* header를 고정 위치로 설정 */
-        width: 100%; /* header의 너비를 화면 전체로 설정 */
-        background-color: #fff; /* 배경색을 흰색으로 설정 */
+        position: fixed;
+        width: 100%;
+        background-color: #fff;
         top: 0;
-        border-bottom: .1rem solid #dfdfdf; /* 하단에 회색 선 추가 */
-        z-index: 15; /* z-index를 높여 다른 요소 위에 배치 */
+        border-bottom: .1rem solid #dfdfdf;
+        z-index: 15;
       }
     
+      /* 모바일 메뉴 버튼 스타일 */
       .btn-m-menu {
         display: block;
         width: 4rem;
@@ -3507,30 +3510,65 @@ footer는 따로 들어가는 기능은 없지만 추후에 mediaquery를 이용
         font-size: 0;
         position: relative;
         z-index: 5;
-        margin-left: 1.5rem; /* 버튼을 왼쪽으로 1.5rem 이동 */
+        margin-left: 1.5rem;
       }
     
+      /* 모바일 메뉴 버튼 내의 span 요소 스타일 */
       .btn-m-menu span {
         position: absolute;
         display: block;
         width: 2.6rem;
         height: .3rem;
-        background-color: #242424; /* 메뉴 버튼 색상 */
+        background-color: #242424;
         top: 50%;
         right: 50%;
-        margin-right: -1.7rem; /* 가운데 정렬을 위한 조정 */
+        margin-right: -1.7rem;
         border-radius: .2rem;
       }
     
-      /* 모바일 메뉴 상태 변화 */
+      /* 메뉴 버튼의 before, after 가상 요소 */
+      .btn-m-menu span::before,
+      .btn-m-menu span::after {
+        position: absolute;
+        display: block;
+        content: "";
+        width: 3.4rem;
+        height: .3rem;
+        background-color: #242424;
+        right: 0;
+        transition-duration: 0.3s, 0.3s;
+        transition-delay: 0.3s, 0s;
+        border-radius: .2rem;
+      }
+    
+      /* before 가상 요소의 위치와 애니메이션 설정 */
+      .btn-m-menu span::before {
+        top: -.8rem;
+        transition-property: top, transform;
+      }
+    
+      /* after 가상 요소의 위치와 애니메이션 설정 */
+      .btn-m-menu span::after {
+        bottom: -.8rem;
+        transition-property: bottom, transform;
+      }
+    
+      /* 두 번째 레벨 메뉴 숨기기 */
       .h-dep2 {
-        display: none; /* 두 번째 메뉴 항목 숨김 */
+        display: none;
       }
     
+      /* 헤더의 로고 이미지 크기 조정 */
+      h1.logo img {
+        height: 6rem;
+      }
+    
+      /* hero 영역의 상단 여백 조정 */
       .hero {
-        margin-top: 10rem; /* hero 섹션 위쪽 여백 설정 */
+        margin-top: 10rem;
       }
     
+      /* 서브 네비게이션을 화면 오른쪽에 고정하고 트랜지션 효과 추가 */
       .sub-nav-wrap {
         display: block;
         position: fixed;
@@ -3541,10 +3579,11 @@ footer는 따로 들어가는 기능은 없지만 추후에 mediaquery를 이용
         border: none;
         z-index: 2;
         height: 100%;
-        transition: .3s ease-in-out; /* 서브 네비게이션의 이동 애니메이션 추가 */
-        transform: translateX(110%); /* 오른쪽으로 숨겨놓기 */
+        transition: .3s ease-in-out;
+        transform: translateX(110%);
       }
     
+      /* 오버레이 배경 추가 */
       .overlay {
         position: fixed;
         z-index: 1;
@@ -3552,15 +3591,40 @@ footer는 따로 들어가는 기능은 없지만 추후에 mediaquery를 이용
         left: 0;
         right: 0;
         bottom: 0;
-        background-color: rgba(0, 0, 0, 0.432); /* 오버레이 배경 */
+        background-color: rgba(0, 0, 0, 0.432);
       }
     
+      /* 서브 네비게이션의 padding 조정 */
       .sub-nav-wrap .rel {
-        padding: 0; /* 서브 네비게이션의 padding 없애기 */
+        padding: 0;
       }
     
-      /* 모바일 메뉴 항목 */
-      .sub-nav > li > span.blind:after {
+      /* 서브 네비게이션을 세로로 배치 */
+      .sub-nav {
+        flex-direction: column;
+        border: none;
+      }
+    
+      /* 서브 네비게이션 항목 스타일 */
+      .sub-nav > li {
+        text-align: left;
+        padding: 0;
+        line-height: 4.3rem;
+      }
+    
+      /* 서브 네비게이션 항목에 화살표 추가 */
+      .sub-nav > li > span.blind {
+        display: block;
+        position: relative;
+        font-size: 1.7rem;
+        color: #333;
+        font-weight: 700;
+        padding: 0 0 0 1.8rem;
+        cursor: pointer;
+      }
+    
+      /* 화살표 스타일 */
+      .sub-nav > li > span.blind::after {
         display: block;
         content: "";
         position: absolute;
@@ -3574,18 +3638,44 @@ footer는 따로 들어가는 기능은 없지만 추후에 mediaquery를 이용
         transition: .3s ease-in-out;
       }
     
-      /* 모바일 메뉴의 전개/축소 애니메이션 */
-      .sub-nav>li.on>span.blind {
+      /* 서브 네비게이션 항목 사이의 경계선 추가 */
+      .sub-nav > li + li {
+        border-left: none;
+        border-top: .1rem solid #dfdfdf;
+      }
+    
+      /* 서브 리스트 숨기기 */
+      .sub-list {
+        display: none;
+        padding: 1rem 0 1rem 1.8rem;
+      }
+    
+      /* 서브 리스트 항목 스타일 */
+      .sub-list li a {
+        line-height: 1.4rem;
+        padding: .5rem 0;
+        font-size: 1.5rem;
+      }
+    
+      /* 서브 네비게이션에 SNS 아이콘 추가 */
+      .sub-nav-wrap .sns-wrap {
+        display: flex;
+        margin: 3rem 0 0 1.8rem;
+      }
+    
+      /* 서브 네비게이션 항목이 활성화되었을 때 스타일 */
+      .sub-nav > li.on > span.blind {
         background-color: #0085cd;
         color: #fff;
       }
     
-      .sub-nav>li.on>span.blind:after {
+      /* 활성화된 서브 네비게이션 항목의 화살표 스타일 */
+      .sub-nav > li.on > span.blind::after {
         border-color: #fff;
         transform: translateY(-35%) rotate(-135deg);
       }
     
-      /* 모바일 메뉴 열기 상태 */
+      /* 모바일 메뉴가 열렸을 때 스타일 */
       .mob-mOpen .btn-m-menu span {
         background-color: transparent;
       }
@@ -3605,14 +3695,165 @@ footer는 따로 들어가는 기능은 없지만 추후에 mediaquery를 이용
         transform: rotate(-45deg);
       }
     
+      /* 모바일 메뉴 열렸을 때 오버레이 표시 */
       .mob-mOpen .overlay {
-        display: block; /* 오버레이 활성화 */
+        display: block;
       }
     
+      /* 서브 네비게이션이 화면에 슬라이드인 */
       .mob-mOpen .sub-nav-wrap {
-        transform: translateX(0); /* 서브 네비게이션을 왼쪽으로 이동 */
+        transform: translateX(0);
       }
-    }
+    
+      /* Hero 슬라이더 타이틀 스타일 */
+      .hero-slider .tit-wrap h2 {
+        line-height: 6rem;
+        font-size: 1.6rem;
+      }
+    
+      .hero-slider .tit-wrap {
+        height: 6rem;
+        padding-left: 3rem;
+      }
+    
+      /* Depth1 섹션 스타일 */
+      .info-btn {
+        width: 13rem;
+        height: 6rem;
+        font-size: 1.6rem;
+      }
+    
+      .news-wrap {
+        width: calc(100% - 30rem);
+      }
+    
+      .news-wrap h3 span {
+        display: block;
+        padding: .6rem 0 0 0;
+      }
+    
+      .news-wrap h3 img {
+        height: 2.8rem;
+      }
+    
+      .news-slider-wrap {
+        margin-left: 1rem;
+        width: calc(100% - 7rem);
+      }
+    
+      .news-slider-wrap .swiper-button-next, .news-slider-wrap .swiper-button-prev {
+        height: 1rem;
+      }
+    
+      .news-slider-wrap .swiper-button-next {
+        margin-top: .5rem;
+      }
+    
+      /* Depth2 섹션 스타일 */
+      .tab {
+        height: 6rem;
+      }
+    
+      .tab li a {
+        line-height: 6rem;
+        font-size: 1.6rem;
+      }
+    
+      .depth2 .swiper-slide a {
+        width: 24.2rem;
+        height: 44.1rem;
+        padding: 2rem;
+      }
+    
+      .depth2 .swiper-slide a .img-wrap {
+        width: 20rem;
+        height: 24rem;
+      }
+    
+      .depth2 .swiper-slide a .txt-wrap h3 {
+        font-size: 1.8rem;
+        line-height: 2.5rem;
+      }
+    
+      .depth2 .swiper-slide a .txt-wrap .date {
+        font-size: 1.6rem;
+      }
+    
+      .depth2 .swiper-slide a .txt-wrap .txt {
+        font-size: 1.1rem;
+      }
+    
+      .in-wrap {
+        padding: 3rem;
+      }
+    
+      .in-wrap .tit-wrap h3 {
+        font-size: 1.8rem;
+      }
+    
+      .in-add-btn img {
+        width: 1.4rem;
+      }
+    
+      /* Depth3 섹션 스타일 */
+      .depth3 .rel {
+        flex-wrap: wrap;
+      }
+    
+      .depth3 .people-wrap.in-wrap {
+        width: 100%;
+      }
+    
+      .depth3 .in-wrap {
+        width: calc(50% - 1rem);
+        height: auto;
+      }
+    
+      .depth3 .in-slider-wrap .img-wrap {
+        height: 25rem;
+        margin: auto;
+      }
+    
+      .in-slider-wrap {
+        text-align: center;
+      }
+    
+      /* Depth4 섹션 스타일 */
+      .depth4 .in-slider-wrap .sl-txt {
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
+        padding: 0 1rem;
+      }
+    
+      .notice-media-wrap {
+        padding: 1.5rem 3rem;
+        height: 26rem;
+      }
+    
+      .notice-media-wrap h2 {
+        margin-bottom: 2rem;
+      }
+    
+      .notice-media-wrap h2 span {
+        font-size: 1.8rem;
+      }
+    
+      .notice-media-wrap h2 span:after {
+        bottom: -1rem;
+      }
+    
+      .notice-media-wrap h2 span+span {
+        margin-left: 1.5rem;
+      }
+    
+      .notice-media-wrap h2 span+span::before {
+        left: -1.2rem;
+      }
+    
+      .content-wrap > ul li a span:first-child {
+        width: 75%;
+        text-overflow
     
     ```
     
@@ -3789,6 +4030,12 @@ footer는 따로 들어가는 기능은 없지만 추후에 mediaquery를 이용
     
       .content-wrap > ul li a span:last-child {
         width: 40%;
+      }
+       .c-wrap{
+        flex-direction: column;
+      }
+      .write-btn{
+        margin-top: 0;
       }
     }
     ```
@@ -4871,3 +5118,275 @@ footer는 따로 들어가는 기능은 없지만 추후에 mediaquery를 이용
 각 미디어 쿼리와 관련된 스타일 변경 사항에 대한 주석을 추가한 것입니다. 
 
 각 범위에서 어떤 스타일이 수정되는지 설명이 포함되어 있습니다
+
+---
+
+### 🔟- 작성하고 나서 검토 후 수정본
+
+```jsx
+
+$(function () {
+
+  //  DOM 요소 변수 선언
+
+const subNav = $('.sub-nav-wrap');             // 데스크탑 서브 메뉴 전체 영역
+const mainNav = $('.main-nav li a');           // 데스크탑 네비게이션 메뉴 링크
+const header = $('header');                    // 헤더 (검색창 열림 상태 클래스 제어용)
+const schOpenBtn = $('.sch-open-btn');         // 검색 열기 버튼
+const schCloseBtn = $('.sch-c-btn');           // 검색 닫기 버튼
+const searchWrap = $('.search-wrap');          // 검색창 래퍼
+
+const subList = $('.sub-list');                // 모바일 서브메뉴 리스트
+const body = $('body');                        // 전체 페이지 (모바일 메뉴 상태 제어용)
+const btnMmenu = $('.btn-m-menu');             // 모바일 메뉴 토글 버튼
+const subNavBtn = $('.sub-nav>li>span.blind'); // 모바일 서브메뉴 열기 버튼 (접근성용)
+
+// 상태 변수
+
+let schOpen = false;           // 검색창 열림 여부
+let dskSubNavState = false;    // 데스크탑 서브메뉴 열림 여부
+
+//  공통 함수
+
+// 데스크탑 상태 리셋 (메뉴 및 검색창 초기화)
+function dskReset() {
+  subNav.removeAttr('style');
+  header.removeClass('schOpen');
+}
+
+// 모바일 상태 리셋 (서브메뉴 및 모바일 전체메뉴 닫기)
+function mobReset() {
+  subList.removeAttr('style');
+  subNavBtn.parent('li').removeClass('on');
+  body.removeClass('mob-mOpen');
+}
+
+//  검색 관련 함수
+
+function openSearch() {
+  if (!schOpen) {
+    // 데스크탑 메뉴 열려 있으면 닫기
+    if (dskSubNavState) {
+      subNav.stop().slideUp();
+      dskSubNavState = false;
+    }
+
+    //모바일 메뉴 열려 있으면 닫기
+    if (body.hasClass('mob-mOpen')) {
+      body.removeClass('mob-mOpen');
+    }
+
+    header.addClass('schOpen');
+    searchWrap.fadeIn();
+    schOpen = true;
+  }
+}
+
+function closeSearch() {
+  if (schOpen) {
+    header.removeClass('schOpen');
+    searchWrap.fadeOut();
+    schOpen = false;
+  }
+}
+
+  // 데스크탑 메뉴 함수
+
+// 데스크탑 메뉴 열기 (검색창은 자동 닫힘)
+function dskNavOpen() {
+  if (schOpen) {
+    closeSearch();
+  }
+
+  if (!dskSubNavState) {
+    subNav.stop().slideDown();
+    dskSubNavState = true;
+  }
+}
+
+// 데스크탑 메뉴 닫기 (mouseleave 시)
+function dskNavClose() {
+  if (window.innerWidth >= 1024) {
+    setTimeout(function () {
+      subNav.stop().slideUp();
+      dskSubNavState = false;
+    }, 500);
+  }
+}
+
+  //  모바일 메뉴 토글
+
+btnMmenu.on('click', (e) => {
+  e.preventDefault();
+  if(schOpen){
+    closeSearch()
+  }
+  body.toggleClass('mob-mOpen');
+});
+
+  // 모바일 서브 메뉴 토글
+
+subNavBtn.on('click', function () {
+  const $parentLi = $(this).parent('li');
+  const $siblingSub = $(this).siblings('.sub-list');
+
+  if ($parentLi.hasClass('on')) {
+    $parentLi.removeClass('on');
+    $siblingSub.slideUp();
+  } else {
+    $parentLi
+      .addClass('on')
+      .siblings()
+      .removeClass('on')
+      .children('.sub-list')
+      .slideUp();
+
+    $siblingSub.slideDown();
+  }
+});
+
+  // 반응형 전환 시 초기화
+
+$(window).on('resize load', () => {
+  let winWidth = window.innerWidth;
+
+  if (winWidth < 1024) {
+    dskReset(); // 모바일 전환 시 데스크탑 메뉴 초기화
+    schOpen=false
+  }
+  
+  if (winWidth >= 1024) {
+    mobReset(); // 데스크탑 전환 시 모바일 메뉴 초기화
+    schOpen=false
+  }
+
+  console.log(winWidth); // 확인용 로그
+});
+
+//  검색 버튼 이벤트 바인딩
+
+schOpenBtn.on('click', function (e) {
+  e.preventDefault();
+  openSearch();
+});
+
+schCloseBtn.on('click', function (e) {
+  closeSearch();
+});
+
+  //  데스크탑 메뉴 이벤트
+mainNav.on('mouseenter', dskNavOpen);      // 메인 메뉴 hover 시 서브 메뉴 열기
+subNav.on('mouseleave', dskNavClose);      // 서브 메뉴 영역을 벗어나면 닫기
+
+}); // jQuery ready end
+
+// fixedTop
+const fixedTopBtn = document.querySelector('.fixedTop')
+
+window.addEventListener('scroll', () => {
+let scroll = window.scrollY
+
+console.log(scroll)
+
+if (scroll > 100) {
+  fixedTopBtn.classList.add('On')
+} else {
+
+  fixedTopBtn.classList.remove('On')
+}
+})
+
+fixedTopBtn.addEventListener('click', (e) => {
+e.preventDefault()
+
+window.scrollTo({
+  top: 0,
+  behavior: 'smooth'
+})
+
+})
+
+// depth5 tab
+const dep5Tabs = document.querySelectorAll('.notice-media-wrap h2 span')
+const dep5Contents = document.querySelectorAll('.content-wrap>ul')
+
+dep5Tabs.forEach((tab, i) => {
+
+tab.addEventListener('click', () => {
+  console.log(i);
+  dep5Tabs.forEach((tab) => tab.classList.remove('on'))
+  dep5Contents.forEach((content) => content.classList.remove('active'))
+
+  tab.classList.add('on')
+  dep5Contents[i].classList.add('active')
+})
+})
+
+const heroSlider = new Swiper(".hero-slider", {
+effect: 'fade',
+pagination: {
+  el: ".hero-slider .swiper-pagination",
+  clickable: true, // 페이지네이션 클릭 가능하도록 설정
+
+},
+loop: true
+});
+
+const newsSlider = new Swiper(".news-slider", {
+direction: "vertical",
+navigation: {
+  nextEl: ".news-slider .swiper-button-next",
+  prevEl: ".news-slider .swiper-button-prev",
+  clickable: true, // 페이지네이션 클릭 가능하도록 설정
+
+},
+});
+
+// in slider
+const programSlider = new Swiper(".program-slider", {
+autoplay: true,
+pagination: {
+  el: ".program-slider .swiper-pagination",
+},
+});
+const promotionSlider = new Swiper(".promotion-slider", {
+autoplay: true,
+pagination: {
+  el: ".promotion-slider .swiper-pagination",
+},
+});
+const clipSlider = new Swiper(".clip-slider", {
+autoplay: true,
+pagination: {
+  el: ".clip-slider .swiper-pagination",
+},
+});
+const gallerySlider = new Swiper(".gallery-slider", {
+autoplay: true,
+pagination: {
+  el: ".gallery-slider .swiper-pagination",
+},
+});
+const serviceSlider = new Swiper(".service-slider", {
+autoplay: true,
+pagination: {
+  el: ".service-slider .swiper-pagination",
+},
+});
+const siteSlider = new Swiper('.site', {
+breakpoints: {
+  0: {
+    slidesPerView: 1,
+    navigation: {
+      nextEl: 'footer .dep1 .btn-wrap .swiper-button-next',
+      prevEl: 'footer .dep1 .btn-wrap .swiper-button-prev',
+      clickable: true
+    }
+
+  },
+  650: {
+    slidesPerView: 4
+  }
+}
+})
+```
