@@ -217,7 +217,7 @@ tab.addEventListener('click', () => {
   dep5Contents.forEach((content) => content.classList.remove('active'))
 
   tab.classList.add('on')
-  dep5Contentsi.classList.add('active')
+  dep5Contents[i].classList.add('active')
 })
 })
 

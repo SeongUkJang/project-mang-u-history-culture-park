@@ -636,6 +636,7 @@ footer .dep1 .btn-wrap .swiper-button-prev {
 @media screen and (max-width:530px) {
   .depth3 .in-wrap {
     width: calc(100%);
+    height: auto;
   }
 }
 
