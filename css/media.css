@@ -336,6 +336,7 @@
   }
   .depth3 .in-wrap{
     width: calc(50% - 1rem);
+    height: auto;
   }
   .depth3 .in-slider-wrap .img-wrap{
     height:  25rem;
