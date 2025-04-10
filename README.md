@@ -5,18 +5,28 @@
 
 ### 0️⃣ - 기본 설정
 
-- html
-    
-    ```html
-      <!DOCTYPE html>
-    <html lang="en">
-    
-    <head>
-      <meta charset="UTF-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <title>망우역사문화공원</title>
-      <link rel="stylesheet" href="./css/style.css">
-    </head>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>망우역사문화공원</title>
+  <link rel="stylesheet" href="./css/style.css">
+  <link rel="icon" href="./img/logo.png" type="image/x-icon">
+  <meta name="description" content="망우역사문화공원">
+  <meta name="keywords" content="HTML, CSS, JavaScript, JQuery, Gsap, Swiper">
+  <meta name="robots" content="index, follow">
+  <meta property="og:title" content="망우역사문화공원">
+  <meta property="og:description" content="망우역사문화공원">
+  <meta property="og:image" content="https://raw.githubusercontent.com/SeongUkJang/project-mang-u-history-culture-park/refs/heads/main/img/logo.png">
+  <meta property="og:url" content="https://seongukjang.github.io/project-mang-u-history-culture-park/">
+  <meta property="og:type" content="website">
+  <meta name="author" content="장성욱">
+  <meta name="copyright" content="© 2025 my company">
+  <!-- <meta http-equiv="refresh" content="5; url=https://example.com"> -->
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+</head>
     <body>
     
       <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
